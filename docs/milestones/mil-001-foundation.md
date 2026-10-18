@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
+| 2026-10-18 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
+| 2026-10-27 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Fixed a duplicated link block; no change of content | pending |
 
 ---
 
@@ -75,8 +76,4 @@ A merged pull request containing `pyproject.toml` (Python 3.13 or newer, `pytest
 [BC-001]: ../business-case.md
 [SA-001]: ../stakeholder-analysis.md
 [PP-001]: ../project-plan.md
-
----
-
-[BC-001]: ../business-case.md
 [cd21a73]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/cd21a7366b9c25f09a6ff9c7283f82f8f865d6e5
