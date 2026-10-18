@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iss-overhead-notifier"
+version = "0.1.0"
+description = "Sends an e-mail when the International Space Station is overhead at night (Udemy 100 Days of Code, day 33)."
+readme = "README.md"
+requires-python = ">=3.13"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+keywords = ["iss", "notifier", "udemy", "100-days-of-code", "smtp"]
+classifiers = [
+    "Programming Language :: Python :: 3.13",
+    "Environment :: Console",
+    "Intended Audience :: Education",
+]
+# No runtime dependencies: the standard library is enough (urllib, smtplib, json).
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "mypy>=1.11",
+    "import-linter>=2.0",
+]
+
+[project.scripts]
+iss-notifier = "iss_notifier.presentation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 88
+src = ["src", "tests"]
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "N", "D"]
+ignore = ["D203", "D213"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+mypy_path = "src"
+files = ["src", "tests"]
+
+[tool.importlinter]
+root_package = "iss_notifier"
+
+[[tool.importlinter.contracts]]
+name = "Layers point inward"
+type = "layers"
+layers = [
+    "iss_notifier.presentation",
+    "iss_notifier.infrastructure",
+    "iss_notifier.application",
+    "iss_notifier.domain",
+]
