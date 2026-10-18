@@ -44,3 +44,6 @@ docs/doxygen/
 *.swp
 .DS_Store
 Thumbs.db
+
+# Local settings of the notifier (copy config.env.example to config.env)
+config.env

@@ -11,8 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
-| 2026-10-26 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added gateway G4 Config file | [f2afaf8] |
+| 2026-10-26 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added gateway G4 Config file | [f2afaf8] |
+| 2026-10-27 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Open Issues: IP position guess added to G4 | [c6b02ef] |
 
 ---
 
@@ -84,6 +84,7 @@ A No-Go at a gateway moves every later date by the rework time; the later gatewa
 - Repository path: the request names `git.tirsystem.com/Tirsvad-Udemy-100_days_of_code`, but `origin` is `Tirsvad-Udemy-100-days-of-code/033-iss-location`. The plan uses `origin`. Confirm before the description and topics are set.
 - "Python greater than 3.13" is read as 3.13 or newer.
 - No task uses a use case or user story: the work follows the assignment text and each task cites a Business Case objective.
+- G4 also adds a position guess from the public IP address (a third-party service, `get.geojs.io`). The Business Case does not list it as in or out of scope; S01 asked for it in chat on 2026-10-27 and it is recorded here and in [MIL-004] instead of amending [BC-001].
 - No QC checklist exists for the Project Plan; it is accepted against the Business Case constraint and the Go/No-Go criteria of each milestone.
 
 ---
@@ -94,5 +95,5 @@ A No-Go at a gateway moves every later date by the rework time; the later gatewa
 [MIL-002]: ./milestones/mil-002-notifier.md
 [MIL-003]: ./milestones/mil-003-docs-wiki.md
 [MIL-004]: ./milestones/mil-004-config-file.md
-[cd21a73]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/cd21a7366b9c25f09a6ff9c7283f82f8f865d6e5
 [f2afaf8]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f2afaf8f9d93fa95691f273b3fd3a658804eddee
+[c6b02ef]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/c6b02ef5942d486bc8f5a86a4a733d3ba76c1dc5

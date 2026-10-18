@@ -16,6 +16,11 @@ class PositionUnavailableError(IssNotifierError):
     """The current ISS position could not be obtained."""
 
 
+## @brief The home position could not be guessed from the public IP address.
+class PositionGuessError(IssNotifierError):
+    """The home position could not be guessed from the public IP address."""
+
+
 ## @brief The sunrise and sunset hours could not be obtained.
 class DaylightUnavailableError(IssNotifierError):
     """The sunrise and sunset hours could not be obtained."""

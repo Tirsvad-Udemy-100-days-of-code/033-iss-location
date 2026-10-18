@@ -1,4 +1,4 @@
-"""@brief Settings read from environment variables. No .env file is loaded."""
+"""@brief Settings read from a mapping of variables (environment and config file)."""
 
 from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
@@ -22,8 +22,8 @@ from iss_notifier.domain.models import GeoPosition
 class Settings:
     """Configuration of the notifier. Private fields are kept out of repr."""
 
-    ## @brief Position of the observer.
-    home: GeoPosition = field(repr=False)
+    ## @brief Position of the observer, or None when it is to be guessed.
+    home: GeoPosition | None = field(repr=False)
 
     ## @brief SMTP server host name.
     smtp_host: str
@@ -70,22 +70,39 @@ def _number(
         raise ConfigError(f"invalid value in environment variable {name}") from None
 
 
-## @brief Read the settings from environment variables.
+## @brief Read the optional home position.
 #
-# @param environ Mapping of variable names to values, such as os.environ.
-# @return The validated settings.
-# @throws ConfigError when a variable is missing or invalid. The message names
-#     the variable and never echoes a value.
-def load_settings(environ: Mapping[str, str]) -> Settings:
-    """Read the settings from environment variables."""
+# @param environ Mapping of variable names to values.
+# @return The position, or None when both coordinates are absent or blank.
+# @throws ConfigError when only one coordinate is set, or a value is invalid.
+def _read_home(environ: Mapping[str, str]) -> GeoPosition | None:
+    has_latitude = bool(environ.get(ENV_LATITUDE, "").strip())
+    has_longitude = bool(environ.get(ENV_LONGITUDE, "").strip())
+    if not has_latitude and not has_longitude:
+        return None
+    if has_latitude != has_longitude:
+        raise ConfigError(
+            f"set both {ENV_LATITUDE} and {ENV_LONGITUDE}, or neither of them"
+        )
     latitude = _number(environ, ENV_LATITUDE, float)
     longitude = _number(environ, ENV_LONGITUDE, float)
     try:
-        home = GeoPosition(latitude, longitude)
+        return GeoPosition(latitude, longitude)
     except ValueError:
         raise ConfigError(
             f"{ENV_LATITUDE} or {ENV_LONGITUDE} is out of range"
         ) from None
+
+
+## @brief Read the settings from environment variables.
+#
+# @param environ Mapping of variable names to values, such as os.environ.
+# @return The validated settings; home is None when no coordinates are set.
+# @throws ConfigError when a variable is missing or invalid. The message names
+#     the variable and never echoes a value.
+def load_settings(environ: Mapping[str, str]) -> Settings:
+    """Read the settings from environment variables."""
+    home = _read_home(environ)
     port = (
         int(_number(environ, ENV_SMTP_PORT, int))
         if environ.get(ENV_SMTP_PORT, "").strip()
