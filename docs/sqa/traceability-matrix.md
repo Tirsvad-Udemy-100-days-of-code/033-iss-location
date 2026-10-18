@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-21 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-008, the code review of MIL-002 | [01df9d5] |
 | 2026-10-24 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-009, the delivery check of MIL-003 | [0f9ba87] |
+| 2026-10-25 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-010, the review of the wiki publish workflow | [7e33d80] |
 
 ---
 
@@ -29,6 +29,7 @@ Tracks backward and forward links between artifact instances so that the Busines
 | [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-004], [RC-007] |
 | [MIL-002] | MIL | en | it | [BC-001], [MIL-001] | [MIL-003] | [RC-005], [RC-008] |
 | [MIL-003] | MIL | en | it | [BC-001], [MIL-002] | - | [RC-006], [RC-009] |
+| `.gitea/workflows/publish-wiki.yml` | CI workflow | - | - | [MIL-003] | - | [RC-010] |
 
 ## Coverage Notes
 
@@ -54,5 +55,6 @@ Tracks backward and forward links between artifact instances so that the Busines
 [RC-007]: ./reviews/rc-007-mil-001-code.md
 [RC-008]: ./reviews/rc-008-mil-002-code.md
 [RC-009]: ./reviews/rc-009-mil-003-docs.md
-[01df9d5]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/01df9d5d3230b4c97d31979485ccddadf9a85519
+[RC-010]: ./reviews/rc-010-publish-wiki-workflow.md
 [0f9ba87]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/0f9ba87fb63619bd51f19026a6a006cd943b6fae
+[7e33d80]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/7e33d80b6515e32cf520545805c1673d183cbdf9

@@ -1,0 +1,44 @@
+# Publish the project's wiki pages to the Gitea wiki of this repository.
+#
+# Purpose: on a push to main that changes docs/wiki/ (or this file), call the
+# reusable workflow of TirSystem/github-action, which copies the Markdown pages
+# of docs/wiki/ (English, Danish, Bahasa Malaysia) to the repository's wiki.
+# framework/process/wiki.md describes the folder. Installing this file is the
+# opt-in; there is no marker file.
+#
+# Inputs: wiki_dir (docs/wiki); prune "true" deletes wiki pages that are not in
+# the folder, so the wiki always equals it.
+# Secret: TOKEN_FOR_GITEA_WIKI (organisation secret, Gitea token with scope
+# write:repository). It changes only the wiki of this repository.
+# Host: Gitea 1.27.3 (git.tirsystem.com) with a runner registered for the
+# organisation. Pinned to the moving major tag v2 of TirSystem/github-action,
+# the release policy of that repository; tools-ref is the same tag so the
+# workflow and its script come from one release.
+# Origin: framework/templates/ci/publish-wiki.yml (opt-in by the project owner).
+
+name: Publish wiki
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "docs/wiki/**"
+      - ".gitea/workflows/publish-wiki.yml"
+
+# Two merges in a row queue instead of racing.
+concurrency:
+  group: publish-wiki
+  cancel-in-progress: false
+
+jobs:
+  wiki:
+    name: Publish docs/wiki to the repository wiki
+    permissions:
+      contents: read
+    uses: TirSystem/github-action/.gitea/workflows/publish-wiki-pages.yml@v2
+    with:
+      wiki_dir: docs/wiki
+      prune: "true"
+      tools-ref: v2
+    secrets:
+      TOKEN_FOR_GITEA_WIKI: ${{ secrets.TOKEN_FOR_GITEA_WIKI }}
