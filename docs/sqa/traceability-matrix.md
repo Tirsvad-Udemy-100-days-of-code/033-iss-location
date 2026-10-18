@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
 | 2026-10-19 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-007, the code review of MIL-001 | [f906248] |
+| 2026-10-21 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-008, the code review of MIL-002 | pending |
 
 ---
 
@@ -27,7 +27,7 @@ Tracks backward and forward links between artifact instances so that the Busines
 | [DICT-001] | DICT | en | it | [BC-001] | - | [RC-003] |
 | [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003] | - |
 | [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-004], [RC-007] |
-| [MIL-002] | MIL | en | it | [BC-001], [MIL-001] | [MIL-003] | [RC-005] |
+| [MIL-002] | MIL | en | it | [BC-001], [MIL-001] | [MIL-003] | [RC-005], [RC-008] |
 | [MIL-003] | MIL | en | it | [BC-001], [MIL-002] | - | [RC-006] |
 
 ## Coverage Notes
@@ -52,5 +52,5 @@ Tracks backward and forward links between artifact instances so that the Busines
 [RC-005]: ./reviews/rc-005-mil-002.md
 [RC-006]: ./reviews/rc-006-mil-003.md
 [RC-007]: ./reviews/rc-007-mil-001-code.md
-[cd21a73]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/cd21a7366b9c25f09a6ff9c7283f82f8f865d6e5
+[RC-008]: ./reviews/rc-008-mil-002-code.md
 [f906248]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f906248afdd210283469ba31c11f034a7c477bad

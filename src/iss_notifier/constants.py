@@ -41,6 +41,30 @@ ENV_SMTP_PASSWORD: Final[str] = "ISS_NOTIFIER_SMTP_PASSWORD"
 ## @brief Environment variable holding the recipient address.
 ENV_MAIL_TO: Final[str] = "ISS_NOTIFIER_MAIL_TO"
 
+## @brief Largest absolute latitude in degrees.
+MAX_LATITUDE_DEGREES: Final[float] = 90.0
+
+## @brief Largest absolute longitude in degrees.
+MAX_LONGITUDE_DEGREES: Final[float] = 180.0
+
+## @brief Degrees in a full circle, used to wrap longitude differences.
+FULL_CIRCLE_DEGREES: Final[float] = 360.0
+
+## @brief Number of hours in a day; valid hours are 0 to this value minus one.
+HOURS_PER_DAY: Final[int] = 24
+
+## @brief Timeout in seconds for the SMTP connection.
+SMTP_TIMEOUT_SECONDS: Final[int] = 30
+
+## @brief Format of every log line.
+LOG_FORMAT: Final[str] = "%(asctime)s %(levelname)s %(name)s: %(message)s"
+
+## @brief Process exit code for a clean run.
+EXIT_OK: Final[int] = 0
+
+## @brief Process exit code when the configuration is missing or invalid.
+EXIT_CONFIG_ERROR: Final[int] = 2
+
 ## @brief Subject line of the notification e-mail.
 EMAIL_SUBJECT: Final[str] = "Look up! The ISS is overhead"
 
