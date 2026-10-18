@@ -15,7 +15,7 @@
 
 ## Artifact Under Review
 
-- Instance reviewed: [MIL-004] (source code and tests of branch `mil-004-config-file`)
+- Instance reviewed: [MIL-004] (source code and tests of branch `fix-user-agent`)
 - Checklist used: [QC-PY-001] (`QC-PY-001`)
 - Scope: full review of the files changed by the branch
 - Language and domain: n/a (source code is professional IT English)
