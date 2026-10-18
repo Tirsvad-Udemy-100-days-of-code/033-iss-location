@@ -21,7 +21,7 @@ The program checks every 60 seconds whether the ISS is within 5 degrees of your 
 | --- | --- |
 | `src/iss_notifier/` | The program (domain rules, use case, API clients, mail sender, command line) |
 | `tests/` | pytest tests that run offline |
-| `docs/` | Business case, plan, milestones, reviews and the wiki |
+| `docs/` | Business case, plan, milestones, reviews, screenshots and the wiki (`docs/wiki/`, in English, Danish and Bahasa Malaysia) |
 | `pyproject.toml` | Project configuration and tool settings |
 | `Doxyfile` | Settings for the Doxygen source documentation |
 
@@ -58,7 +58,26 @@ Leave the environment with `deactivate`. The `.venv` folder is ignored by git.
 
 ## ▶️ Run
 
-The notifier arrives with milestone G2 (see [Milestones][milestones]); this section is completed there.
+The program reads its settings from environment variables; it loads no `.env` file. Set them in the terminal where you run it (PowerShell shown; use `export NAME="value"` on Linux and macOS):
+
+```powershell
+$env:ISS_NOTIFIER_LATITUDE = "<your latitude>"
+$env:ISS_NOTIFIER_LONGITUDE = "<your longitude>"
+$env:ISS_NOTIFIER_SMTP_HOST = "smtp.example.com"
+$env:ISS_NOTIFIER_SMTP_USER = "<your login>"
+$env:ISS_NOTIFIER_SMTP_PASSWORD = "<your app password>"
+$env:ISS_NOTIFIER_MAIL_TO = "<recipient address>"
+```
+
+`ISS_NOTIFIER_SMTP_PORT` is optional (default 587, STARTTLS). Then start the notifier with the `.venv` active:
+
+```bash
+python -m iss_notifier
+```
+
+![ISS Overhead Notifier running][screenshot-run]
+
+Press Ctrl+C to stop. The screenshot shows the real program running against recorded API responses and placeholder settings. The [wiki][documentation] explains every setting in English, Danish and Bahasa Malaysia.
 
 ## 🧪 Tests
 
@@ -67,6 +86,8 @@ With the environment active:
 ```bash
 python -m pytest
 ```
+
+![pytest result][screenshot-tests]
 
 Quality checks used by the code review:
 
@@ -116,6 +137,8 @@ The documents a newcomer needs, in reading order.
 [documentation]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/wiki
 [issues]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/issues
 [license]: ./LICENSE
+[screenshot-run]: ./docs/images/notifier-run.png
+[screenshot-tests]: ./docs/images/pytest.png
 [agents]: ./AGENTS.md
 [BC-001]: ./docs/business-case.md
 [SA-001]: ./docs/stakeholder-analysis.md
