@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | pending |
+| 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [6998b0b] |
 
 ---
 
@@ -59,3 +59,4 @@ Go — all applicable mandatory criteria pass. Verified live without sending mai
 
 [MIL-004]: ../../milestones/mil-004-config-file.md
 [QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
+[6998b0b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/6998b0b260cae75083d035358c41dfd438090890
