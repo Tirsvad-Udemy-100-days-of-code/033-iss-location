@@ -11,6 +11,14 @@ SUNRISE_SUNSET_URL: Final[str] = "https://api.sunrise-sunset.org/json"
 ## @brief Endpoint that returns the position of the caller's public IP address.
 GEOLOCATION_URL: Final[str] = "https://get.geojs.io/v1/ip/geo.json"
 
+## @brief User-Agent sent with every HTTP request.
+# Some services (get.geojs.io) answer 403 to urllib's default agent. The version
+# is written here and not read from the package, to avoid an import cycle.
+USER_AGENT: Final[str] = (
+    "iss-overhead-notifier/0.1.0 "
+    "(+https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location)"
+)
+
 ## @brief Name of the configuration file read when --config is not given.
 DEFAULT_CONFIG_FILE: Final[str] = "config.env"
 
