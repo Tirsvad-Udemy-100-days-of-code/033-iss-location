@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
-| 2026-10-19 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-007, the code review of MIL-001 | pending |
+| 2026-10-19 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-007, the code review of MIL-001 | [f906248] |
 
 ---
 
@@ -53,3 +53,4 @@ Tracks backward and forward links between artifact instances so that the Busines
 [RC-006]: ./reviews/rc-006-mil-003.md
 [RC-007]: ./reviews/rc-007-mil-001-code.md
 [cd21a73]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/cd21a7366b9c25f09a6ff9c7283f82f8f865d6e5
+[f906248]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f906248afdd210283469ba31c11f034a7c477bad
