@@ -15,13 +15,14 @@ Sends you an e-mail when the International Space Station (ISS) is above your hea
 
 ## 🧭 Overview
 
-The program checks every 60 seconds whether the ISS is within 5 degrees of your latitude and longitude and whether it is night at your position. When both are true it sends you an e-mail. The assignment's function names `is_iss_overhead` and `is_night` are kept so you can compare your solution with this one.
+The program checks every 60 seconds whether the ISS is within 5 degrees of your latitude and longitude (set in `config.env`, or guessed from your IP address) and whether it is night at your position. When both are true it sends you an e-mail. The assignment's function names `is_iss_overhead` and `is_night` are kept so you can compare your solution with this one.
 
 | Part | What it is for |
 | --- | --- |
 | `src/iss_notifier/` | The program (domain rules, use case, API clients, mail sender, command line) |
 | `tests/` | pytest tests that run offline |
 | `docs/` | Business case, plan, milestones, reviews, screenshots and the wiki (`docs/wiki/`, in English, Danish and Bahasa Malaysia) |
+| `config.env.example` | Template of the settings file `config.env` (never commit the real file) |
 | `pyproject.toml` | Project configuration and tool settings |
 | `Doxyfile` | Settings for the Doxygen source documentation |
 
@@ -58,18 +59,27 @@ Leave the environment with `deactivate`. The `.venv` folder is ignored by git.
 
 ## ▶️ Run
 
-The program reads its settings from environment variables; it loads no `.env` file. Set them in the terminal where you run it (PowerShell shown; use `export NAME="value"` on Linux and macOS):
+The program reads its settings from a file named `config.env` in the folder where you run it. Copy the example and replace every placeholder (the file is ignored by git, so your values are never committed):
 
 ```powershell
-$env:ISS_NOTIFIER_LATITUDE = "<your latitude>"
-$env:ISS_NOTIFIER_LONGITUDE = "<your longitude>"
-$env:ISS_NOTIFIER_SMTP_HOST = "smtp.example.com"
-$env:ISS_NOTIFIER_SMTP_USER = "<your login>"
-$env:ISS_NOTIFIER_SMTP_PASSWORD = "<your app password>"
-$env:ISS_NOTIFIER_MAIL_TO = "<recipient address>"
+Copy-Item config.env.example config.env
 ```
 
-`ISS_NOTIFIER_SMTP_PORT` is optional (default 587, STARTTLS). Then start the notifier with the `.venv` active:
+On Linux and macOS use `cp config.env.example config.env`. The file holds `NAME=value` lines:
+
+```text
+ISS_NOTIFIER_LATITUDE=<your latitude>
+ISS_NOTIFIER_LONGITUDE=<your longitude>
+ISS_NOTIFIER_SMTP_HOST=smtp.example.com
+ISS_NOTIFIER_SMTP_PORT=587
+ISS_NOTIFIER_SMTP_USER=<your login>
+ISS_NOTIFIER_SMTP_PASSWORD=<your app password>
+ISS_NOTIFIER_MAIL_TO=<recipient address>
+```
+
+A variable set in the real environment overrides the file, and `--config <path>` reads another file. If you leave out both latitude and longitude, the program guesses your position from your public IP address: that sends your IP address to `get.geojs.io` and is only accurate to the city, which is enough for the 5-degree margin. `ISS_NOTIFIER_SMTP_PORT` is optional (default 587, STARTTLS). The program never reads the file `.env`.
+
+Then start the notifier with the `.venv` active:
 
 ```bash
 python -m iss_notifier

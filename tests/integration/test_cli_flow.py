@@ -3,6 +3,7 @@ import ssl
 from collections.abc import Callable, Mapping
 from datetime import UTC, datetime
 from email.message import EmailMessage
+from pathlib import Path
 from types import TracebackType
 from typing import Any, Self
 
@@ -18,6 +19,7 @@ from iss_notifier.constants import (
     ENV_SMTP_PASSWORD,
     ENV_SMTP_USER,
     EXIT_OK,
+    GEOLOCATION_URL,
     ISS_NOW_URL,
     SUNRISE_SUNSET_URL,
 )
@@ -94,6 +96,12 @@ def reset_mailbox() -> None:
     FakeSmtp.sent = []
 
 
+@pytest.fixture(autouse=True)
+def empty_working_directory(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Keep a real config.env of the developer out of the tests."""
+    monkeypatch.chdir(tmp_path)
+
+
 def _serve(iss: list[dict[str, Any] | Exception], sun: dict[str, Any]) -> Fetch:
     iss_replies = iter(iss)
 
@@ -111,11 +119,13 @@ def _serve(iss: list[dict[str, Any] | Exception], sun: dict[str, Any]) -> Fetch:
     return fetch
 
 
-def _run(fetch: Fetch, checks: int) -> list[float]:
+def _run(
+    fetch: Fetch, checks: int, environ: Mapping[str, str] = ENVIRON
+) -> list[float]:
     sleeps: list[float] = []
     code = main(
         [],
-        ENVIRON,
+        environ,
         sleep=sleeps.append,
         smtp_factory=FakeSmtp,
         fetch=fetch,
@@ -162,3 +172,38 @@ def test_flow_logs_neither_secrets_nor_coordinates(
     assert "ISS overhead: yes, night: yes" in caplog.text
     for hidden in ("s3cret-value", "me@example.test", "you@example.test", "51.5"):
         assert hidden not in caplog.text
+
+
+GUESSED = {"latitude": "52.0", "longitude": "-1.5", "ip": "203.0.113.9"}
+NO_COORDINATES = {
+    k: v for k, v in ENVIRON.items() if k not in (ENV_LATITUDE, ENV_LONGITUDE)
+}
+
+
+def test_flow_uses_the_guessed_position_and_sends_one_mail(
+    caplog: pytest.LogCaptureFixture,
+) -> None:
+    serve_iss = _serve([OVERHEAD], _night_now())
+
+    def fetch(url: str, params: Mapping[str, str] | None) -> dict[str, Any]:
+        if url == GEOLOCATION_URL:
+            return GUESSED
+        if url == SUNRISE_SUNSET_URL:
+            assert params is not None
+            assert params["lat"] == "52.0"
+        return serve_iss(url, params)
+
+    with caplog.at_level(logging.INFO):
+        _run(fetch, checks=1, environ=NO_COORDINATES)
+    assert len(FakeSmtp.sent) == 1
+    assert "Home position guessed" in caplog.text
+    for hidden in ("52.0", "-1.5", "203.0.113.9", GEOLOCATION_URL, "s3cret-value"):
+        assert hidden not in caplog.text
+
+
+def test_flow_reads_its_settings_from_a_config_file(tmp_path: Path) -> None:
+    lines = [f"{k}={v}" for k, v in ENVIRON.items()]
+    text = "\n".join(lines) + "\n"
+    (tmp_path / "config.env").write_text(text, encoding="utf-8")
+    _run(_serve([OVERHEAD], _night_now()), checks=1, environ={})
+    assert len(FakeSmtp.sent) == 1

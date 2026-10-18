@@ -4,29 +4,21 @@
 
 ## 1. Configure
 
-The program reads its settings from environment variables, never from a file. Set them in the terminal where you run the program. Windows (PowerShell):
+The program reads its settings from a file named `config.env` in the folder where you run it. Copy the example and edit the copy. Windows (PowerShell):
 
 ```powershell
-$env:ISS_NOTIFIER_LATITUDE = "<your latitude>"
-$env:ISS_NOTIFIER_LONGITUDE = "<your longitude>"
-$env:ISS_NOTIFIER_SMTP_HOST = "smtp.example.com"
-$env:ISS_NOTIFIER_SMTP_USER = "<your login>"
-$env:ISS_NOTIFIER_SMTP_PASSWORD = "<your app password>"
-$env:ISS_NOTIFIER_MAIL_TO = "<recipient address>"
+Copy-Item config.env.example config.env
 ```
 
 Linux and macOS:
 
 ```bash
-export ISS_NOTIFIER_LATITUDE="<your latitude>"
-export ISS_NOTIFIER_LONGITUDE="<your longitude>"
-export ISS_NOTIFIER_SMTP_HOST="smtp.example.com"
-export ISS_NOTIFIER_SMTP_USER="<your login>"
-export ISS_NOTIFIER_SMTP_PASSWORD="<your app password>"
-export ISS_NOTIFIER_MAIL_TO="<recipient address>"
+cp config.env.example config.env
 ```
 
-Use an app password from your mail provider, not your normal password. All settings are listed on [Configuration](Configuration).
+Replace every placeholder in `config.env`. The file is ignored by git, so your values are never committed. Use an app password from your mail provider, not your normal password.
+
+A variable that is also set in the real environment overrides the file, and `--config <path>` reads another file. If you leave out both `ISS_NOTIFIER_LATITUDE` and `ISS_NOTIFIER_LONGITUDE`, the program guesses your position from your public IP address (see [Configuration](Configuration)). All settings are listed there.
 
 ## 2. Run
 

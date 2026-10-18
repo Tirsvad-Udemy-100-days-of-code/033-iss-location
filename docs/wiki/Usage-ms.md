@@ -4,29 +4,21 @@
 
 ## 1. Konfigurasi
 
-Program membaca tetapannya daripada pemboleh ubah persekitaran, tidak pernah daripada fail. Tetapkannya dalam terminal tempat anda menjalankan program. Windows (PowerShell):
+Program membaca tetapannya daripada fail `config.env` dalam folder tempat anda menjalankannya. Salin contoh dan sunting salinan itu. Windows (PowerShell):
 
 ```powershell
-$env:ISS_NOTIFIER_LATITUDE = "<your latitude>"
-$env:ISS_NOTIFIER_LONGITUDE = "<your longitude>"
-$env:ISS_NOTIFIER_SMTP_HOST = "smtp.example.com"
-$env:ISS_NOTIFIER_SMTP_USER = "<your login>"
-$env:ISS_NOTIFIER_SMTP_PASSWORD = "<your app password>"
-$env:ISS_NOTIFIER_MAIL_TO = "<recipient address>"
+Copy-Item config.env.example config.env
 ```
 
 Linux dan macOS:
 
 ```bash
-export ISS_NOTIFIER_LATITUDE="<your latitude>"
-export ISS_NOTIFIER_LONGITUDE="<your longitude>"
-export ISS_NOTIFIER_SMTP_HOST="smtp.example.com"
-export ISS_NOTIFIER_SMTP_USER="<your login>"
-export ISS_NOTIFIER_SMTP_PASSWORD="<your app password>"
-export ISS_NOTIFIER_MAIL_TO="<recipient address>"
+cp config.env.example config.env
 ```
 
-Gunakan kata laluan aplikasi daripada penyedia mel anda, bukan kata laluan biasa. Semua tetapan disenaraikan di halaman [Konfigurasi](Configuration-ms).
+Gantikan setiap ruang letak dalam `config.env`. Fail itu diabaikan oleh git, jadi nilai anda tidak pernah dikomit. Gunakan kata laluan aplikasi daripada penyedia mel anda, bukan kata laluan biasa.
+
+Pemboleh ubah yang turut ditetapkan dalam persekitaran sebenar mengatasi fail, dan `--config <laluan>` membaca fail lain. Jika anda tinggalkan kedua-dua `ISS_NOTIFIER_LATITUDE` dan `ISS_NOTIFIER_LONGITUDE`, program meneka kedudukan anda daripada alamat IP awam anda (lihat [Konfigurasi](Configuration-ms)). Semua tetapan disenaraikan di situ.
 
 ## 2. Jalankan
 

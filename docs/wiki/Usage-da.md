@@ -4,29 +4,21 @@
 
 ## 1. Konfigurer
 
-Programmet læser sine indstillinger fra miljøvariabler, aldrig fra en fil. Sæt dem i den terminal, hvor du kører programmet. Windows (PowerShell):
+Programmet læser sine indstillinger fra filen `config.env` i den mappe, hvor du kører det. Kopiér eksemplet og redigér kopien. Windows (PowerShell):
 
 ```powershell
-$env:ISS_NOTIFIER_LATITUDE = "<your latitude>"
-$env:ISS_NOTIFIER_LONGITUDE = "<your longitude>"
-$env:ISS_NOTIFIER_SMTP_HOST = "smtp.example.com"
-$env:ISS_NOTIFIER_SMTP_USER = "<your login>"
-$env:ISS_NOTIFIER_SMTP_PASSWORD = "<your app password>"
-$env:ISS_NOTIFIER_MAIL_TO = "<recipient address>"
+Copy-Item config.env.example config.env
 ```
 
 Linux og macOS:
 
 ```bash
-export ISS_NOTIFIER_LATITUDE="<your latitude>"
-export ISS_NOTIFIER_LONGITUDE="<your longitude>"
-export ISS_NOTIFIER_SMTP_HOST="smtp.example.com"
-export ISS_NOTIFIER_SMTP_USER="<your login>"
-export ISS_NOTIFIER_SMTP_PASSWORD="<your app password>"
-export ISS_NOTIFIER_MAIL_TO="<recipient address>"
+cp config.env.example config.env
 ```
 
-Brug en app-adgangskode fra din mailudbyder, ikke din almindelige adgangskode. Alle indstillinger står på siden [Konfiguration](Configuration-da).
+Erstat hver pladsholder i `config.env`. Filen ignoreres af git, så dine værdier bliver aldrig committet. Brug en app-adgangskode fra din mailudbyder, ikke din almindelige adgangskode.
+
+En variabel, der også er sat i det rigtige miljø, tilsidesætter filen, og `--config <sti>` læser en anden fil. Udelader du både `ISS_NOTIFIER_LATITUDE` og `ISS_NOTIFIER_LONGITUDE`, gætter programmet din position ud fra din offentlige IP-adresse (se [Konfiguration](Configuration-da)). Alle indstillinger står der.
 
 ## 2. Kør
 

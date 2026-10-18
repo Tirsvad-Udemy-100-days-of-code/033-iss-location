@@ -24,8 +24,12 @@ ENVIRON = {
 }
 
 
+COORDINATES = (ENV_LATITUDE, ENV_LONGITUDE)
+
+
 def test_load_settings_reads_every_variable() -> None:
     settings = load_settings(ENVIRON)
+    assert settings.home is not None
     assert settings.home.latitude == 51.5
     assert settings.home.longitude == -0.1
     assert settings.smtp_host == "smtp.example.test"
@@ -40,11 +44,36 @@ def test_load_settings_uses_default_port_when_unset() -> None:
     assert load_settings(environ).smtp_port == SMTP_DEFAULT_PORT
 
 
+def test_load_settings_leaves_home_unset_when_both_coordinates_are_absent() -> None:
+    environ = {k: v for k, v in ENVIRON.items() if k not in COORDINATES}
+    assert load_settings(environ).home is None
+
+
+def test_load_settings_treats_two_blank_coordinates_as_absent() -> None:
+    environ = {**ENVIRON, ENV_LATITUDE: "", ENV_LONGITUDE: "  "}
+    assert load_settings(environ).home is None
+
+
+@pytest.mark.parametrize("present", COORDINATES)
+@pytest.mark.parametrize("blank", [False, True])
+def test_load_settings_rejects_a_single_coordinate_naming_both(
+    present: str, blank: bool
+) -> None:
+    environ = {k: v for k, v in ENVIRON.items() if k not in COORDINATES}
+    environ[present] = "12.5"
+    for name in COORDINATES:
+        if blank and name != present:
+            environ[name] = " "
+    with pytest.raises(ConfigError) as info:
+        load_settings(environ)
+    assert ENV_LATITUDE in str(info.value)
+    assert ENV_LONGITUDE in str(info.value)
+    assert "12.5" not in str(info.value)
+
+
 @pytest.mark.parametrize(
     "name",
     [
-        ENV_LATITUDE,
-        ENV_LONGITUDE,
         ENV_SMTP_HOST,
         ENV_SMTP_USER,
         ENV_SMTP_PASSWORD,

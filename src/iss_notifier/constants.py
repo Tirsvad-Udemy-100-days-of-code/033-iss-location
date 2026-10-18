@@ -8,6 +8,12 @@ ISS_NOW_URL: Final[str] = "http://api.open-notify.org/iss-now.json"
 ## @brief Endpoint that returns sunrise and sunset for a position.
 SUNRISE_SUNSET_URL: Final[str] = "https://api.sunrise-sunset.org/json"
 
+## @brief Endpoint that returns the position of the caller's public IP address.
+GEOLOCATION_URL: Final[str] = "https://get.geojs.io/v1/ip/geo.json"
+
+## @brief Name of the configuration file read when --config is not given.
+DEFAULT_CONFIG_FILE: Final[str] = "config.env"
+
 ## @brief Seconds between two checks.
 CHECK_INTERVAL_SECONDS: Final[int] = 60
 

@@ -18,6 +18,19 @@ class IssPositionProvider(Protocol):
         ...
 
 
+## @brief Source of the observer's own position, guessed when not configured.
+class HomePositionProvider(Protocol):
+    """Source of the observer's own position, guessed when not configured."""
+
+    ## @brief Get the position of the observer.
+    #
+    # @return The guessed position of the observer.
+    # @throws PositionGuessError when it cannot be obtained.
+    def home_position(self) -> GeoPosition:
+        """Get the position of the observer."""
+        ...
+
+
 ## @brief Source of sunrise and sunset hours.
 class DaylightProvider(Protocol):
     """Source of sunrise and sunset hours."""
