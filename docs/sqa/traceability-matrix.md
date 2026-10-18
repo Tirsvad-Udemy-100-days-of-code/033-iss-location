@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-26 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added MIL-004 and RC-011 | [f2afaf8] |
-| 2026-10-27 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-012, the re-review of MIL-004 | pending |
+| 2026-10-27 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-012, the re-review of MIL-004 | [c6b02ef] |
 
 ---
 
@@ -61,3 +61,4 @@ Tracks backward and forward links between artifact instances so that the Busines
 [RC-012]: ./reviews/rc-012-mil-004-ip-guess.md
 [MIL-004]: ../milestones/mil-004-config-file.md
 [f2afaf8]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f2afaf8f9d93fa95691f273b3fd3a658804eddee
+[c6b02ef]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/c6b02ef5942d486bc8f5a86a4a733d3ba76c1dc5

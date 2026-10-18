@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-18 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [f2afaf8] |
-| 2026-10-27 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added task 7 and criteria 10 and 11: guess the position from the IP address | pending |
+| 2026-10-27 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added task 7 and criteria 10 and 11: guess the position from the IP address | [c6b02ef] |
 
 ---
 
@@ -84,3 +84,4 @@ A merged pull request in which the program reads its settings from `config.env` 
 [MIL-002]: ./mil-002-notifier.md
 [MIL-003]: ./mil-003-docs-wiki.md
 [f2afaf8]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f2afaf8f9d93fa95691f273b3fd3a658804eddee
+[c6b02ef]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/c6b02ef5942d486bc8f5a86a4a733d3ba76c1dc5
