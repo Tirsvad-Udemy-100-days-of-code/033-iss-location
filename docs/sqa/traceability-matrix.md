@@ -9,8 +9,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-28 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-013, the code review of MIL-004 | [6f745ae] |
 | 2026-10-28 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-014, the re-review of MIL-004 for the User-Agent fix | [8defb7f] |
+| 2026-10-28 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-015, the code review of the User-Agent fix | pending |
 
 ---
 
@@ -29,7 +29,7 @@ Tracks backward and forward links between artifact instances so that the Busines
 | [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-004], [RC-007] |
 | [MIL-002] | MIL | en | it | [BC-001], [MIL-001] | [MIL-003] | [RC-005], [RC-008] |
 | [MIL-003] | MIL | en | it | [BC-001], [MIL-002] | - | [RC-006], [RC-009] |
-| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | - | [RC-011], [RC-012], [RC-013], [RC-014] |
+| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | - | [RC-011], [RC-012], [RC-013], [RC-014], [RC-015] |
 | `.gitea/workflows/publish-wiki.yml` | CI workflow | - | - | [MIL-003] | - | [RC-010] |
 
 ## Coverage Notes
@@ -61,6 +61,6 @@ Tracks backward and forward links between artifact instances so that the Busines
 [RC-012]: ./reviews/rc-012-mil-004-ip-guess.md
 [RC-013]: ./reviews/rc-013-mil-004-code.md
 [RC-014]: ./reviews/rc-014-mil-004-user-agent.md
+[RC-015]: ./reviews/rc-015-mil-004-user-agent-code.md
 [MIL-004]: ../milestones/mil-004-config-file.md
-[6f745ae]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/6f745ae37f003bba796c78a9b2a4237979c20db4
 [8defb7f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/8defb7f0440d375136e4d200a3d0f08081cfbdf7
