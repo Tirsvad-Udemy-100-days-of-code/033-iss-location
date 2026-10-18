@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-18 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
-| 2026-10-26 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added gateway G4 Config file | pending |
+| 2026-10-26 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added gateway G4 Config file | [f2afaf8] |
 
 ---
 
@@ -95,3 +95,4 @@ A No-Go at a gateway moves every later date by the rework time; the later gatewa
 [MIL-003]: ./milestones/mil-003-docs-wiki.md
 [MIL-004]: ./milestones/mil-004-config-file.md
 [cd21a73]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/cd21a7366b9c25f09a6ff9c7283f82f8f865d6e5
+[f2afaf8]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f2afaf8f9d93fa95691f273b3fd3a658804eddee

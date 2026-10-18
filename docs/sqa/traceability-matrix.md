@@ -10,7 +10,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-25 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-010, the review of the wiki publish workflow | [7e33d80] |
-| 2026-10-26 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added MIL-004 and RC-011 | pending |
+| 2026-10-26 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added MIL-004 and RC-011 | [f2afaf8] |
 
 ---
 
@@ -60,3 +60,4 @@ Tracks backward and forward links between artifact instances so that the Busines
 [RC-011]: ./reviews/rc-011-mil-004.md
 [MIL-004]: ../milestones/mil-004-config-file.md
 [7e33d80]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/7e33d80b6515e32cf520545805c1673d183cbdf9
+[f2afaf8]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f2afaf8f9d93fa95691f273b3fd3a658804eddee
