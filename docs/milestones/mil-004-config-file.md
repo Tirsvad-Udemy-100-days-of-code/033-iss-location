@@ -11,14 +11,14 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [f2afaf8] |
-| 2026-10-27 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added task 7 and criteria 10 and 11: guess the position from the IP address | [c6b02ef] |
+| 2026-10-27 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added task 7 and criteria 10 and 11: guess the position from the IP address | [c6b02ef] |
+| 2026-10-28 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added task 8 and criterion 12: send a User-Agent, name the HTTP status | pending |
 
 ---
 
 ## Purpose
 
-Decide whether the settings can be kept in a `config.env` file next to the program, with a committed `config.env.example` of placeholders, instead of being typed as environment variables in every terminal, and whether the program can guess the position from the public IP address when no latitude and longitude are set. S01 asked for both after G3.
+Decide whether the settings can be kept in a `config.env` file next to the program, with a committed `config.env.example` of placeholders, instead of being typed as environment variables in every terminal, and whether the program can guess the position from the public IP address when no latitude and longitude are set, and that the lookup works against the live service. S01 asked for both after G3.
 
 ## Deliverable
 
@@ -39,6 +39,7 @@ A merged pull request in which the program reads its settings from `config.env` 
 | 9 | The personal `.env` is neither read, tested nor imported by the project | Yes | No |
 | 10 | With neither `ISS_NOTIFIER_LATITUDE` nor `ISS_NOTIFIER_LONGITUDE` set, the home position comes from the IP lookup; with only one of them set the program exits with code 2 naming both variables; a failed or malformed lookup exits with code 2; the log says that the position was guessed but never prints it | Yes | No |
 | 11 | The README and the wiki (all three languages) say that the guess sends the public IP address to `get.geojs.io`, is only city accurate and can be replaced by setting the two variables | Yes | No |
+| 12 | Every HTTP request sends the `User-Agent` from `constants.py` (the default `Python-urllib` agent is refused with HTTP 403 by `get.geojs.io`), and a failed request names the status code in its error message, never the URL | Yes | No |
 
 ## Dependencies
 
@@ -76,6 +77,7 @@ A merged pull request in which the program reads its settings from `config.env` 
 | 5 | Update README and wiki for config.env | Replace the `$env:` blocks in the README and in Usage and Configuration of the wiki (English, Danish, Bahasa Malaysia) with the copy-and-edit steps for `config.env`; keep the same page set. | No | BC-001 O5, O6 |
 | 6 | Regenerate the run screenshot | Re-render `docs/images/notifier-run.png` so that it shows the `config.env` step with placeholders. Supports SC6. | No | BC-001 O6 |
 | 7 | Guess the position from the IP address | When neither latitude nor longitude is set, ask `https://get.geojs.io/v1/ip/geo.json` (standard library, timeout from constants) for the position of the public IP address and use it as the home position. Only one of the two set is a `ConfigError`; a failed or malformed answer raises a domain error and the program exits with code 2. The log says the position was guessed, never the values. The lookup is behind a port so tests use a fake. | No | BC-001 O1 |
+| 8 | Send a User-Agent with every request | S01 ran the program and got `request failed: HTTPError`: `get.geojs.io` answers HTTP 403 to the default `Python-urllib` User-Agent. Send a descriptive `User-Agent` constant (program name, version and repository URL) with every request in `fetch_json`, and add the HTTP status code (never the URL) to the error message so that the failure is diagnosable. Tests with a fake opener check the header and the message. | No | BC-001 O1 |
 
 ---
 
@@ -83,5 +85,4 @@ A merged pull request in which the program reads its settings from `config.env` 
 [PP-001]: ../project-plan.md
 [MIL-002]: ./mil-002-notifier.md
 [MIL-003]: ./mil-003-docs-wiki.md
-[f2afaf8]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/f2afaf8f9d93fa95691f273b3fd3a658804eddee
 [c6b02ef]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/c6b02ef5942d486bc8f5a86a4a733d3ba76c1dc5
