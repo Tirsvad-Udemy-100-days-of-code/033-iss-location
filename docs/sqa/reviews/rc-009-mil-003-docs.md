@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | pending |
+| 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [0f9ba87] |
 
 ---
 
@@ -47,3 +47,4 @@ Go — all seven criteria pass. The translations are unreviewed by a native spea
 ---
 
 [MIL-003]: ../../milestones/mil-003-docs-wiki.md
+[0f9ba87]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/0f9ba87fb63619bd51f19026a6a006cd943b6fae

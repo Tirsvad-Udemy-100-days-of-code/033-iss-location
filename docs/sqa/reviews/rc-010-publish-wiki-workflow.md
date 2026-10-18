@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | pending |
+| 2026-10-18 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [7e33d80] |
 
 ---
 
@@ -65,3 +65,4 @@ Go — all mandatory criteria pass. One thing is open: no run of this file exist
 
 [MIL-003]: ../../milestones/mil-003-docs-wiki.md
 [QC-WF-001]: ../../../framework/qc/code/qc-workflow.md
+[7e33d80]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/7e33d80b6515e32cf520545805c1673d183cbdf9
