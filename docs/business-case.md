@@ -4,14 +4,15 @@
 | Key | Value |
 | --- | --- |
 | ID | BC-001 |
-| CrossReference | [SA-001] |
+| CrossReference | [SA-001], [MIL-005] |
 | Language | en |
-| Domain | it |
+| Domain | education |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-10-18 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
+| 2026-10-18 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added objective O7, success criterion SC9, a scope item, an out-of-scope item, a risk and a constraint for the baseline milestone MIL-005; set the domain to education; reviewed in autonomous mode, not independent | pending |
 
 ---
 
@@ -44,6 +45,7 @@ A tested, documented and runnable solution can be reused as a reference by other
 4. O4: Cover the logic with pytest tests that need no network and no mail server.
 5. O5: Document how to create and use a local `.venv`, upgrade pip, run the program and run the tests.
 6. O6: Publish a repository description, topics, a README and a wiki in English, Danish and Bahasa Malaysia, with screenshots.
+7. O7: Bring the finished project to the common baseline of the framework: the adopted framework release, the wiki in the framework's shape, complete licence metadata and review records for every changed document ([MIL-005]).
 
 ## Scope
 
@@ -54,6 +56,7 @@ A tested, documented and runnable solution can be reused as a reference by other
 - Coordinates and mail settings through environment variables, with no secrets in the repository.
 - README from the framework template, wiki pages in `en`, `da` and `ms`, screenshots for both.
 - Repository description and topics on the git host.
+- The baseline milestone [MIL-005]: framework release, the wiki pages and sidebar in the framework's shape, the README without the private framework files in its appendix, licence and project URL metadata, `.editorconfig`, `.env.example`, review records and a current traceability matrix. It changes no behaviour of the program.
 
 ### Out of Scope
 
@@ -62,6 +65,7 @@ A tested, documented and runnable solution can be reused as a reference by other
 - Importing or testing the personal `.env` file; it holds personal tokens for the git host only.
 - Mail other than Simple Mail Transfer Protocol (SMTP) with STARTTLS (start Transport Layer Security), push notifications and several locations.
 - Packaging for the Python Package Index (PyPI).
+- Any change to `src/` or `tests/` in the baseline milestone [MIL-005].
 
 ## Expected Benefits
 
@@ -93,6 +97,7 @@ The project supports the participant's goal of completing the bootcamp with port
 | SC6 | Screenshots | At least one in the README and one in each wiki language | Image files referenced and present |
 | SC7 | Repository metadata | Description and at least 5 topics set | Git host API response |
 | SC8 | Source documentation | Every public function has a Doxygen comment; `doxygen Doxyfile` reports no warnings | Doxygen output |
+| SC9 | The baseline milestone is done (O7) | Every wiki page starts with the language line, the sidebar has the framework's shape, `framework/scripts/check-readme.sh`, `framework/scripts/check-languages.sh` and `framework/scripts/check-editorconfig.sh` exit with code 0, 100 % of the continuous integration (CI) checks of the pull request of [MIL-005] pass | Files in `docs/wiki/`, the script exit codes and the pull request status on the git host |
 
 ## Risks
 
@@ -103,12 +108,13 @@ The project supports the participant's goal of completing the bootcamp with port
 | Screenshots show personal data (address, coordinates) | Privacy loss | Use placeholder values when taking screenshots |
 | The repository named in the request differs from `origin` | Metadata set on the wrong repository | Stop and ask before the first outward-facing action; see Assumptions |
 | Translations drift from English | Inconsistent wiki | English is authoritative; same page set per language, checked at the wiki milestone |
+| The documents of the baseline milestone [MIL-005] are reviewed by an AI stand-in for S01 | Medium: a defect is missed because the review is not independent | Every review record of the baseline says `Mode: autonomous, not independent`, and the end-of-run summary lists it for challenge |
 
 ## Assumptions
 
 - S01 is the Product Owner (PO) and the reviewer; in autonomous mode the AI acts as stand-in for S01 and records it in each review.
 - S02 and S03 cannot be interviewed within this project; their needs are taken from the request.
-- The PO language is English and the PO domain is IT.
+- The PO language is English and the PO domain is education (it was IT until [MIL-005]; the documents that [MIL-005] does not change keep the domain `it`, see the Open Issues of [PP-001]).
 - "Python greater than 3.13" is read as Python 3.13 or newer (`requires-python = ">=3.13"`); 3.13.14 is installed.
 - The `origin` remote (`Tirsvad-Udemy-100-days-of-code/033-iss-location`) is the repository to publish to. The request names `Tirsvad-Udemy-100_days_of_code`, which looks like the organisation; this is raised in the Project Plan's Open Issues.
 - The ISS position API (`api.open-notify.org`) and the sunrise-sunset API (`api.sunrise-sunset.org`) are available without a key.
@@ -121,6 +127,7 @@ The project supports the participant's goal of completing the bootcamp with port
 - Personal tokens come from `.env`, are used for the git host only and are never printed, tested or imported by the project.
 - No commit to `main`; one branch and one pull request per milestone.
 - A small script: the Clean Architecture layers are kept as modules (rules, API clients, mail adapter, entry point), not as heavy packages.
+- The baseline milestone [MIL-005] starts 2026-11-16 and is finished within one week, by 2026-11-23. For that milestone only, an AI stand-in for S01 reviews and accepts the changed documents.
 
 ## Cost–Benefit Assessment
 
@@ -146,4 +153,6 @@ Proceed — the scope is small, the risks have mitigations and the result serves
 ---
 
 [SA-001]: ./stakeholder-analysis.md
+[PP-001]: ./project-plan.md
 [cd21a73]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/cd21a7366b9c25f09a6ff9c7283f82f8f865d6e5
+[MIL-005]: ./milestones/mil-005-framework-baseline.md

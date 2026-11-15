@@ -25,6 +25,9 @@ The program checks every 60 seconds whether the ISS is within 5 degrees of your 
 | `config.env.example` | Template of the settings file `config.env` (never commit the real file) |
 | `pyproject.toml` | Project configuration and tool settings |
 | `Doxyfile` | Settings for the Doxygen source documentation |
+| `framework/` | The SQA and QC framework (git submodule) |
+| `.editorconfig` | Editor settings of the framework baseline |
+| `.env.example` | Placeholders for the git host tokens that the framework scripts read (the program never reads it) |
 
 ## 📋 Requirements
 
@@ -130,7 +133,6 @@ The documents a newcomer needs, in reading order.
 
 | Document | What it tells you |
 | --- | --- |
-| [AGENTS.md][agents] | The rules AI agents follow in this repository |
 | [Business Case][BC-001] | Why the project exists, its scope and success criteria |
 | [Stakeholder Analysis][SA-001] | Who is involved; the stakeholder IDs used for owners and reviewers |
 | [Project Plan][PP-001] | The gateways and their schedule |
@@ -138,8 +140,6 @@ The documents a newcomer needs, in reading order.
 | [Artifact registry][registry] | Where each artifact type lives, the next version, the PO language and domain |
 | [Domain dictionary][DICT-001] | The PO terms and the IT terms |
 | [Traceability matrix][TM-001] | How the artifacts link and when each was last reviewed |
-| [Framework README][framework-readme] | The framework this project uses |
-| [Framework changelog][framework-changelog] | What changed in each framework release |
 
 ---
 
@@ -149,7 +149,6 @@ The documents a newcomer needs, in reading order.
 [license]: ./LICENSE
 [screenshot-run]: ./docs/images/notifier-run.png
 [screenshot-tests]: ./docs/images/pytest.png
-[agents]: ./AGENTS.md
 [BC-001]: ./docs/business-case.md
 [SA-001]: ./docs/stakeholder-analysis.md
 [PP-001]: ./docs/project-plan.md
@@ -157,5 +156,3 @@ The documents a newcomer needs, in reading order.
 [registry]: ./docs/artifact-registry.md
 [DICT-001]: ./docs/dictionary.md
 [TM-001]: ./docs/sqa/traceability-matrix.md
-[framework-readme]: ./framework/README.md
-[framework-changelog]: ./framework/CHANGELOG.md

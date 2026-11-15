@@ -1,6 +1,6 @@
-# Konfiguration
+[English](Configuration) · **Dansk** · [Bahasa Melayu](Configuration-ms)
 
-🌐 [English](Configuration) · **Dansk** · [Bahasa Melayu](Configuration-ms)
+# Konfiguration
 
 ## Filen `config.env`
 

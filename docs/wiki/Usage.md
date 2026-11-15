@@ -1,6 +1,6 @@
-# Usage
+**English** · [Dansk](Usage-da) · [Bahasa Melayu](Usage-ms)
 
-🌐 **English** · [Dansk](Usage-da) · [Bahasa Melayu](Usage-ms)
+# Usage
 
 ## 1. Configure
 

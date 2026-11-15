@@ -4,13 +4,14 @@
 | Key | Value |
 | --- | --- |
 | ID | TM-001 |
-| CrossReference | [BC-001], [SA-001], [DICT-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004] |
+| CrossReference | [BC-001], [SA-001], [DICT-001], [PP-001], [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005] |
 
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-28 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-014, the re-review of MIL-004 for the User-Agent fix | [8defb7f] |
 | 2026-10-28 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-015, the code review of the User-Agent fix | [6998b0b] |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added MIL-005, the review records RC-016 to RC-019 and the wiki; set the reviewed rows of BC-001 and PP-001 and the domain of the changed rows to education; recorded the removed wiki workflow (autonomous, not independent) | pending |
 
 ---
 
@@ -22,19 +23,25 @@ Tracks backward and forward links between artifact instances so that the Busines
 
 | Artifact Instance | Type | Language | Domain | Upstream (Backward Link) | Downstream (Forward Link) | Last Reviewed (RC-ID) |
 | --- | --- | --- | --- | --- | --- | --- |
-| [BC-001] | BC | en | it | - | [SA-001], [DICT-001], [PP-001] | [RC-001] |
+| [BC-001] | BC | en | education | - | [SA-001], [DICT-001], [PP-001], [MIL-005] | [RC-016], [RC-001] |
 | [SA-001] | SA | en | it | [BC-001] | [PP-001] | [RC-002] |
 | [DICT-001] | DICT | en | it | [BC-001] | - | [RC-003] |
-| [PP-001] | PP | en | it | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004] | - |
+| [PP-001] | PP | en | education | [BC-001], [SA-001] | [MIL-001], [MIL-002], [MIL-003], [MIL-004], [MIL-005] | [RC-017] |
 | [MIL-001] | MIL | en | it | [BC-001], [PP-001] | [MIL-002] | [RC-004], [RC-007] |
 | [MIL-002] | MIL | en | it | [BC-001], [MIL-001] | [MIL-003] | [RC-005], [RC-008] |
 | [MIL-003] | MIL | en | it | [BC-001], [MIL-002] | - | [RC-006], [RC-009] |
-| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | - | [RC-011], [RC-012], [RC-013], [RC-014], [RC-015] |
-| `.gitea/workflows/publish-wiki.yml` | CI workflow | - | - | [MIL-003] | - | [RC-010] |
+| [MIL-004] | MIL | en | it | [BC-001], [PP-001], [MIL-003] | [MIL-005] | [RC-011], [RC-012], [RC-013], [RC-014], [RC-015] |
+| [MIL-005] | MIL | en | education | [BC-001], [PP-001], [MIL-004] | - | [RC-018] |
+| `.gitea/workflows/publish-wiki.yml` (removed, see the Coverage Notes) | CI workflow | - | - | [MIL-003] | - | [RC-010] |
+| Wiki | Wiki | en, da, ms | education | [BC-001], [MIL-005] | - | [RC-019] |
 
 ## Coverage Notes
 
-- `PP` has no QC checklist yet, so it has no review record; the Product Owner accepts it (stand-in in autonomous mode).
+- [PP-001] was accepted without a QC checklist; it is reviewed against `QC-PP-001` for the first time in [RC-017].
+- The wiki (`docs/wiki/`) is documentation, not an artifact with an ID or a Language and Domain row; it has its own review record, [RC-019].
+- The project workflow `.gitea/workflows/publish-wiki.yml` was removed when the repository moved to the shared workflows of the git host (pull request #37); [RC-010] reviewed it while it existed.
+- The domain of [BC-001], [PP-001], [MIL-005] and the wiki is `education` since [MIL-005]. The other documents keep the domain `it` they were accepted with; a change of their domain would need a new review of each (see the Open Issues of [PP-001]).
+- [MIL-005] changes no source file, so the source code is not reviewed again.
 - No use cases, user stories or Domain Model exist: every task is a plain technical task ([PP-001] Open Issues).
 - `-` in Upstream means foundational; in Downstream it means nothing is built on it yet; in Last Reviewed it means no `RC-*` exists.
 
@@ -65,3 +72,8 @@ Tracks backward and forward links between artifact instances so that the Busines
 [MIL-004]: ../milestones/mil-004-config-file.md
 [8defb7f]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/8defb7f0440d375136e4d200a3d0f08081cfbdf7
 [6998b0b]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/6998b0b260cae75083d035358c41dfd438090890
+[MIL-005]: ../milestones/mil-005-framework-baseline.md
+[RC-016]: ./reviews/rc-016-business-case-baseline.md
+[RC-017]: ./reviews/rc-017-project-plan-baseline.md
+[RC-018]: ./reviews/rc-018-milestone-005.md
+[RC-019]: ./reviews/rc-019-wiki.md
