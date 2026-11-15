@@ -1,6 +1,6 @@
-# Installation
+[English](Install) · **Dansk** · [Bahasa Melayu](Install-ms)
 
-🌐 [English](Install) · **Dansk** · [Bahasa Melayu](Install-ms)
+# Installation
 
 ## Krav
 

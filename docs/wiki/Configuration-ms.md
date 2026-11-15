@@ -1,6 +1,6 @@
-# Konfigurasi
+[English](Configuration) · [Dansk](Configuration-da) · **Bahasa Melayu**
 
-🌐 [English](Configuration) · [Dansk](Configuration-da) · **Bahasa Melayu**
+# Konfigurasi
 
 ## Fail `config.env`
 

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -9,6 +9,7 @@ description = "Sends an e-mail when the International Space Station is overhead 
 readme = "README.md"
 requires-python = ">=3.13"
 license = "AGPL-3.0-only"
+authors = [{ name = "Jens Tirsvad Nielsen" }]
 license-files = ["LICENSE"]
 keywords = ["iss", "notifier", "udemy", "100-days-of-code", "smtp"]
 classifiers = [
@@ -18,6 +19,11 @@ classifiers = [
 ]
 # No runtime dependencies: the standard library is enough (urllib, smtplib, json).
 dependencies = []
+
+[project.urls]
+Repository = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location"
+Documentation = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/wiki"
+"Issue tracker" = "https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/issues"
 
 [project.optional-dependencies]
 dev = [

@@ -47,3 +47,6 @@ Thumbs.db
 
 # Local settings of the notifier (copy config.env.example to config.env)
 config.env
+
+# AI prompt log (the repository is public)
+/docs/ai-prompts/
