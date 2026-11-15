@@ -11,7 +11,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-28 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-014, the re-review of MIL-004 for the User-Agent fix | [8defb7f] |
 | 2026-10-28 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added RC-015, the code review of the User-Agent fix | [6998b0b] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added MIL-005, the review records RC-016 to RC-019 and the wiki; set the reviewed rows of BC-001 and PP-001 and the domain of the changed rows to education; recorded the removed wiki workflow (autonomous, not independent) | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added MIL-005, the review records RC-016 to RC-019 and the wiki; set the reviewed rows of BC-001 and PP-001 and the domain of the changed rows to education; recorded the removed wiki workflow (autonomous, not independent) | [098f63a] |
 
 ---
 
@@ -77,3 +77,4 @@ Tracks backward and forward links between artifact instances so that the Busines
 [RC-017]: ./reviews/rc-017-project-plan-baseline.md
 [RC-018]: ./reviews/rc-018-milestone-005.md
 [RC-019]: ./reviews/rc-019-wiki.md
+[098f63a]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/098f63ab2539f469a56163d3a3c85bbaac7dbc84

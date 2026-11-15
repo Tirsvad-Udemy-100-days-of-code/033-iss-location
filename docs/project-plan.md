@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-26 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added gateway G4 Config file | [f2afaf8] |
 | 2026-10-27 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Open Issues: IP position guess added to G4 | [c6b02ef] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added the baseline gateway G5 (MIL-005) with its schedule row, scope coverage, dependency, risk and Gantt entries; linked G1 to G4 to their milestones on the git host; corrected the purpose, the planning window, the G4 deliverable and the open issues; set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added the baseline gateway G5 (MIL-005) with its schedule row, scope coverage, dependency, risk and Gantt entries; linked G1 to G4 to their milestones on the git host; corrected the purpose, the planning window, the G4 deliverable and the open issues; set the domain to education; reviewed in autonomous mode, not independent | [098f63a] |
 
 ---
 
@@ -112,3 +112,4 @@ A No-Go at a gateway moves every later date by the rework time; the later gatewa
 [MIL-005]: ./milestones/mil-005-framework-baseline.md
 [RC-017]: ./sqa/reviews/rc-017-project-plan-baseline.md
 [M-547]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/milestones/547
+[098f63a]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/098f63ab2539f469a56163d3a3c85bbaac7dbc84

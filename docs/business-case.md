@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-10-18 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [cd21a73] |
-| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added objective O7, success criterion SC9, a scope item, an out-of-scope item, a risk and a constraint for the baseline milestone MIL-005; set the domain to education; reviewed in autonomous mode, not independent | pending |
+| 2026-11-16 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Added objective O7, success criterion SC9, a scope item, an out-of-scope item, a risk and a constraint for the baseline milestone MIL-005; set the domain to education; reviewed in autonomous mode, not independent | [098f63a] |
 
 ---
 
@@ -156,3 +156,4 @@ Proceed — the scope is small, the risks have mitigations and the result serves
 [PP-001]: ./project-plan.md
 [cd21a73]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/cd21a7366b9c25f09a6ff9c7283f82f8f865d6e5
 [MIL-005]: ./milestones/mil-005-framework-baseline.md
+[098f63a]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/033-iss-location/commit/098f63ab2539f469a56163d3a3c85bbaac7dbc84
